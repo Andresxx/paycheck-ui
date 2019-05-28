@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { employeeService } from 'src/services/employee.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -7,23 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  public employeeType:string;
   public employee:any;
   constructor() { }
 
   ngOnInit() {
     this.employee = {
-      name : '',
-      ci : '', 
-      type : 'fijo',
-      salary: '',
-      percentage: ''
+      nombre: "",
+      ci: "",
+      tipoDeEmpleado: "fijo",
+      metodoDePago: "efectivo",
+      notificacionDePago: "mail",
+      salario: 0,
+      porcentajeDeComision: 0
     }
   }
 
   
   crateEmployee(){
-    console.log(this.employee)
+    console.log(this.employee);
+    // this.employeeService.post("createEmployee",this.employee).subscribe(res=>{
+    //   console.log(res);
+    // })
   }
 
 }

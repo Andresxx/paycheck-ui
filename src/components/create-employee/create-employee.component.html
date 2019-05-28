@@ -1,25 +1,38 @@
 <div class="form-style-6">
   <h1>Crear Empleado</h1>
   <form>
-    <input type="text" name="field1" placeholder="Nombre Completo" [(ngModel)]='employee.name'/>
+    <input type="text" name="field1" placeholder="Nombre Completo" [(ngModel)]='employee.nombre'/>
     <input type="number" name="field2" placeholder="Carnet de identidad" [(ngModel)]='employee.ci'/>
-    <select id="usertype" [(ngModel)]='employee.type' name="type">
+
+
+    <select id="notificacionDePago" [(ngModel)]='employee.notificacionDePago' name="notificacionDePago">
+      <option value="mail">Mail</option>
+    </select>
+
+    <select id="metodoDePago" [(ngModel)]='employee.metodoDePago' name="metodoDePago">
+      <option value="efectivo">Efectivo</option>
+      <option value="deposito">Deposito </option>
+      <option value="cheque">Cheque</option>
+    </select>
+
+
+    <select id="usertype" [(ngModel)]='employee.tipoDeEmpleado' name="type">
       <option value="fijo">Empleado fijo</option>
       <option value="comision">Empleado por comision </option>
       <option value="parcial">Empleado parcial</option>
     </select>
     <hr>
-    <div *ngIf="employee.type == 'fijo'">
-      <input type="number" name="field3" placeholder="Salario inicial" [(ngModel)]='employee.salary'/>
+    <div *ngIf="employee.tipoDeEmpleado == 'fijo'">
+      <input type="number" name="field3" placeholder="Salario inicial" [(ngModel)]='employee.salario'/>
     </div>
-    <div *ngIf="employee.type == 'comision'">
-      <input type="number" name="field4" placeholder="Salario basico" [(ngModel)]='employee.salary'/>
-      <input type="number" name="field5" placeholder="Porcentaje de comision por venta" [(ngModel)]='employee.percentage'/>
+    <div *ngIf="employee.tipoDeEmpleado == 'comision'">
+      <input type="number" name="field4" placeholder="Salario basico" [(ngModel)]='employee.salario'/>
+      <input type="number" name="field5" placeholder="Porcentaje de comision por venta" [(ngModel)]='employee.porcentajeDeComision'/>
     </div>
-    <div *ngIf="employee.type == 'parcial'">
-      <input type="number" name="field6" placeholder="Salario inicial" [(ngModel)]='employee.salary'/>
+    <div *ngIf="employee.tipoDeEmpleado == 'parcial'">
+      <input type="number" name="field6" placeholder="Salario inicial" [(ngModel)]='employee.salario'/>
     </div>
 
-    <input type="submit" value="Send" (click)="crateEmployee()" />
+    <input type="submit" value="Crear" (click)="crateEmployee()" />
   </form>
 </div>
