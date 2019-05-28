@@ -4,11 +4,17 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from '../components/login/login.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
+import { CreateEmployeeComponent } from '../components/create-employee/create-employee.component';
+import { PaycheckListComponent } from '../components/paycheck-list/paycheck-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavBarComponent,
+    CreateEmployeeComponent,
+    PaycheckListComponent
   ],
   imports: [
     BrowserModule,
