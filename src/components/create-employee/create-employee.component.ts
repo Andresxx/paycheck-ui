@@ -16,6 +16,8 @@ export class CreateEmployeeComponent implements OnInit {
       name : '',
       ci : '', 
       type : 'fijo',
+      salary: '',
+      percentage: ''
     }
     // this.employeeType = "tiempo completo";
   }

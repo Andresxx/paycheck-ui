@@ -1,8 +1,8 @@
 <div class="form-style-6">
   <h1>Crear Empleado</h1>
   <form>
-    <input type="text" name="field1" placeholder="Nombre Completo" />
-    <input type="email" name="field2" placeholder="Carnet de identidad" />
+    <input type="text" name="field1" placeholder="Nombre Completo" [(ngModel)]='employee.name'/>
+    <input type="number" name="field2" placeholder="Carnet de identidad" [(ngModel)]='employee.ci'/>
     <select id="usertype" [(ngModel)]='employee.type' name="type">
       <option value="fijo">Empleado fijo</option>
       <option value="comision">Empleado por comision </option>
@@ -10,14 +10,14 @@
     </select>
     <hr>
     <div *ngIf="employee.type == 'fijo'">
-      <input type="number" name="field3" placeholder="Salario inicial" />
+      <input type="number" name="field3" placeholder="Salario inicial" [(ngModel)]='employee.salary'/>
     </div>
     <div *ngIf="employee.type == 'comision'">
-      <input type="number" name="field4" placeholder="Salario basico" />
-      <input type="number" name="field5" placeholder="Porsentaje de comision por venta" />
+      <input type="number" name="field4" placeholder="Salario basico" [(ngModel)]='employee.salary'/>
+      <input type="number" name="field5" placeholder="Porcentaje de comision por venta" [(ngModel)]='employee.percentage'/>
     </div>
     <div *ngIf="employee.type == 'parcial'">
-      <input type="number" name="field6" placeholder="Salario inicial" />
+      <input type="number" name="field6" placeholder="Salario inicial" [(ngModel)]='employee.salary'/>
     </div>
 
     <input type="submit" value="Send" (click)="print()" />
