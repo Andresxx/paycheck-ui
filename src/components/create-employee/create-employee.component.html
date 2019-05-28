@@ -3,26 +3,23 @@
   <form>
     <input type="text" name="field1" placeholder="Nombre Completo" />
     <input type="email" name="field2" placeholder="Carnet de identidad" />
-    <select placeholder="Tipo de empleado">
-      <option value="">Empleado fijo</option>
-      <option value="">Empleado por comision </option>
-      <option value="">Empleado parcial</option>
+    <select id="usertype" [(ngModel)]='employee.type' name="type">
+      <option value="fijo">Empleado fijo</option>
+      <option value="comision">Empleado por comision </option>
+      <option value="parcial">Empleado parcial</option>
     </select>
     <hr>
-    <!-- empleado fijo -->
-    <div>
-      <input type="email" name="field2" placeholder="Salario inicial" />
+    <div *ngIf="employee.type == 'fijo'">
+      <input type="number" name="field3" placeholder="Salario inicial" />
     </div>
-    <!-- empleado comision -->
-    <div>
-      <input type="email" name="field2" placeholder="Salario basico" />
-      <input type="email" name="field2" placeholder="Porsentaje de comision por venta" />
+    <div *ngIf="employee.type == 'comision'">
+      <input type="number" name="field4" placeholder="Salario basico" />
+      <input type="number" name="field5" placeholder="Porsentaje de comision por venta" />
     </div>
-    <!-- empleado parcial -->
-    <div>
-      <input type="email" name="field2" placeholder="Salario inicial" />
+    <div *ngIf="employee.type == 'parcial'">
+      <input type="number" name="field6" placeholder="Salario inicial" />
     </div>
 
-    <input type="submit" value="Send" />
+    <input type="submit" value="Send" (click)="print()" />
   </form>
 </div>
