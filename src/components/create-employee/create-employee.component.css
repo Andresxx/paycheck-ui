@@ -1,6 +1,6 @@
 .form-style-6{
 	font: 95% Arial, Helvetica, sans-serif;
-	max-width: 400px;
+	max-width: 45%;
 	margin: 10px auto;
 	padding: 16px;
 	background: #F7F7F7;
@@ -37,9 +37,10 @@
 	background: #fff;
 	margin-bottom: 4%;
 	border: 1px solid #ccc;
-	padding: 3%;
+	padding: 1.5%;
 	color: #555;
 	font: 95% Arial, Helvetica, sans-serif;
+	border-radius: 10px;
 }
 .form-style-6 input[type="text"]:focus,
 .form-style-6 input[type="date"]:focus,
@@ -53,7 +54,7 @@
 .form-style-6 select:focus
 {
 	box-shadow: 0 0 5px #43D1AF;
-	padding: 3%;
+	padding: 1.5%;
 	border: 1px solid #43D1AF;
 }
 
@@ -63,7 +64,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	width: 100%;
-	padding: 3%;
+	padding: 1.5%;
 	background: #43D1AF;
 	border-bottom: 2px solid #30C29E;
 	border-top-style: none;

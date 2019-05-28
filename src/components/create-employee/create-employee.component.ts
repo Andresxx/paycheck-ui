@@ -19,11 +19,10 @@ export class CreateEmployeeComponent implements OnInit {
       salary: '',
       percentage: ''
     }
-    // this.employeeType = "tiempo completo";
   }
 
   
-  print(){
+  crateEmployee(){
     console.log(this.employee)
   }
 
