@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { employeeService } from 'src/services/employee.service';
+import { EmployeeService } from 'src/services/employee.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -9,7 +9,7 @@ import { employeeService } from 'src/services/employee.service';
 export class CreateEmployeeComponent implements OnInit {
 
   public employee:any;
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employee = {
@@ -26,9 +26,9 @@ export class CreateEmployeeComponent implements OnInit {
   
   crateEmployee(){
     console.log(this.employee);
-    // this.employeeService.post("createEmployee",this.employee).subscribe(res=>{
-    //   console.log(res);
-    // })
+    this.employeeService.post("createEmployee",this.employee).subscribe(res=>{
+      console.log(res);
+    })
   }
 
 }

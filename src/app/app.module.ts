@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 import { CreateEmployeeComponent } from '../components/create-employee/create-employee.component';
 import { PaycheckListComponent } from '../components/paycheck-list/paycheck-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PaycheckListComponent } from '../components/paycheck-list/paycheck-list
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
