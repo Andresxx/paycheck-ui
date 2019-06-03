@@ -9,7 +9,7 @@ import { ListEmployeeComponent } from 'src/components/list-employee/list-employe
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/listEmployee', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'createEmployee', component: CreateEmployeeComponent },  
   { path: 'generatePaycheck', component: PaycheckListComponent },
