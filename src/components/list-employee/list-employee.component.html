@@ -1,6 +1,5 @@
-<!-- <app-nav-bar></app-nav-bar> -->
-<!-- <button class="btn btn-primary button" (click)="selectMonth.open()">Export tracks</button> -->
-<button class="btn btn-primary button" (click)="navigateTo('createEmployee')">Create Employee</button>
+
+<button class="btn btn-primary button" (click)="navigateTo('createEmployee')">Crear Empleado</button>
 <div class="row">
   <div class="column" *ngFor="let employee of listOfEmployees">
     <div class="card">
@@ -21,36 +20,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <bs-modal #editTrack>
-  <bs-modal-header [showDismiss]="true">
-    <h4 class="modal-title">Edit {{username}}'s track</h4>
-  </bs-modal-header>
-  <form class="form-signin" #track="ngForm">
-    <bs-modal-body>
-      <hr>
-      <div class="form-label-group">
-        <input type="date" id="Date" [(ngModel)]="editDate" name="Date" class="form-control" placeholder="Date"
-          required>
-        <label for="Date">Date</label>
-      </div>
-      <div class="form-label-group">
-        <input type="time" id="initialHour" [(ngModel)]="initWork" name="initialHour" class="form-control"
-          placeholder="Initial hour" required>
-        <label for="initialHour">Initial hour</label>
-      </div>
-      <div class="form-label-group">
-        <input type="time" id="finalHour" [(ngModel)]="finalWork" name="finalHour" class="form-control"
-          placeholder="Final hour" required>
-        <label for="finalHour">Final hour</label>
-      </div>
-      <hr>
-    </bs-modal-body>
-    <bs-modal-footer>
-      <button class="btn-danger" (click)="editTrack.close()">Cancel</button>
-      <button class="btn-primary" (click)="saveData(); editTrack.close()" [disabled]="!track.valid">Save</button>
-    </bs-modal-footer>
-  </form>
-</bs-modal>
- -->
