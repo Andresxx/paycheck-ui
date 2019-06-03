@@ -18,4 +18,9 @@ export class EmployeeService {
     headers.append('Access-Control-Allow-Origin', '*');
     return this.http.post(this.commonUrl + url, data, {headers});
   }
+
+  public get(url: string, data?: any) {
+    const headers = new HttpHeaders();
+    return this.http.get(this.commonUrl + url, data);
+  }
 }

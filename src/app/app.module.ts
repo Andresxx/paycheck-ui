@@ -8,6 +8,7 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 import { CreateEmployeeComponent } from '../components/create-employee/create-employee.component';
 import { PaycheckListComponent } from '../components/paycheck-list/paycheck-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListEmployeeComponent } from '../components/list-employee/list-employee.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     NavBarComponent,
     CreateEmployeeComponent,
-    PaycheckListComponent
+    PaycheckListComponent,
+    ListEmployeeComponent
   ],
   imports: [
     BrowserModule,
