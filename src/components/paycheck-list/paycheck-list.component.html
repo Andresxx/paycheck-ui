@@ -1,1 +1,21 @@
-<button class="btn btn-primary button" >Generar Boletas</button>
+<button class="btn btn-primary button" >Generar Boletas Del Dia</button>
+<button class="btn btn-primary button" >Liatar Todas las boletas</button>
+
+
+<div class="row">
+  <div class="column" *ngFor="let ticket of listOfTickets">
+
+    
+    <div class="card">
+      <!-- <div class="col-sm-4">
+        <img class="img-rounded" width="100" height="100" [src]="'assets/user.png'">
+      </div> -->
+      <h2><b>Boleta de pago de pago </b></h2>
+      <h4><b>Nombre: </b> {{ticket.nombre}}</h4>
+      <h4><b>Carnet: </b>{{ticket.ci}}</h4>
+      <h4><b>Salario: </b>{{ticket.salario}}</h4>
+    </div>
+  </div>
+</div>
+
+

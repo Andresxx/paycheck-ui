@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { EmployeeService } from 'src/services/employee.service';
+import { HttpService } from 'src/services/http.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,12 +13,12 @@ export class ListEmployeeComponent implements OnInit {
   private employeeSubscription : Subscription;
   public listOfEmployees : any;
 
-  constructor(private employeeService: EmployeeService, private router : Router) { }
+  constructor(private httpService: HttpService, private router : Router) { }
 
   ngOnInit() {
     // if(this.employeeSubscription)
     //   this.employeeSubscription.unsubscribe();
-    // this.employeeSubscription = this.employeeService.get('employees').subscribe(response =>{
+    // this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
     //   console.log(response);
       
     // })

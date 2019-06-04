@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class HttpService {
 
   private commonUrl = 'http://localhost:3000/';
 
