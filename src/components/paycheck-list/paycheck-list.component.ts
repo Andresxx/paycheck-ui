@@ -15,32 +15,15 @@ export class PaycheckListComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    this.generateAllTickets();
+  }
 
-      // if(this.employeeSubscription)
-    //   this.employeeSubscription.unsubscribe();
-    // this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
-    //   console.log(response);
-      
-    // })
-
-    this.listOfTickets = {
-      "-LgQCWWn9hqpbPsxqJSg": {
-        "nombre": "Juan perez",
-        "ci": "8794212",
-        "salario":"500",
-        "fecha":"08-09-19"
-      },
-      "-LgQH51B9Bweol3WxkCf": {
-        "nombre": "Juan perez",
-        "ci": "8794212",
-        "salario":"500",
-        "fecha":"08-09-19"
-      }
-    }
-
-    this.listOfTickets = this.parseResponse(this.listOfTickets);
-    console.log(this.listOfTickets);
-
+  generateAllTickets(){
+    if(this.ticketSubscription)
+      this.ticketSubscription.unsubscribe();
+    this.ticketSubscription = this.httpService.get('paychecks').subscribe(response =>{
+      this.listOfTickets = this.parseResponse(response);
+    })
   }
 
 

@@ -18,10 +18,6 @@
   </div>
 </div>
 
-<!-- <button (click)="crearEmpleado.open()">open</button> -->
-
-
-
 
 
 <bs-modal #crearEmpleado>
@@ -31,8 +27,6 @@
   <form class="form-signin" #track="ngForm">
     <bs-modal-body>
       <hr>
-
-
       <div class="form-label-group">
         <input type="text" id="Nombre" [(ngModel)]="employee.nombre" name="Nombre" class="form-control"
           placeholder="Nombre" required>
@@ -42,7 +36,6 @@
         <input type="number" id="ci" [(ngModel)]="employee.ci" name="ci" class="form-control" placeholder="ci" required>
         <label for="ci">Carnet de identidad</label>
       </div>
-
       <div class="form-label-group">
         <select class="form-control" id="metodoDePago" [(ngModel)]='employee.metodoDePago' name="metodoDePago">
           <option value="efectivo">Efectivo</option>
@@ -50,7 +43,6 @@
           <option value="cheque">Cheque</option>
         </select>
       </div>
-
       <div class="form-label-group">
         <select class="form-control" id="usertype" [(ngModel)]='employee.tipoDeEmpleado' name="type">
           <option value="fijo">Empleado fijo</option>
@@ -59,32 +51,32 @@
         </select>
       </div>
       <hr>
-
-    <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'fijo'">
-      <input class="form-control" type="number" name="field3" placeholder="Salario inicial" [(ngModel)]='employee.salario'/>
-      <label for="field3">Salario inicial</label>
-
-    </div>
-    <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'comision'">
-      <input class="form-control" type="number" name="field4" placeholder="Salario basico" [(ngModel)]='employee.salario'/>
-      <label for="field4">Salario basico</label>
-    </div>
-    
-    <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'comision'">
-      <input class="form-control" type="number" name="field5" placeholder="Porcentaje de comision por venta" [(ngModel)]='employee.porcentajeDeComision'/>
-      <label for="field5">Porcentaje de comision por venta</label>
-    </div>
-
-    <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'parcial'">
-      <input class="form-control" type="number" name="field6" placeholder="Salario inicial" [(ngModel)]='employee.salario'/>
-      <label for="field6">Salario inicial</label>
-    </div> 
-
+      <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'fijo'">
+        <input class="form-control" type="number" name="field3" placeholder="Salario inicial"
+          [(ngModel)]='employee.salario' />
+        <label for="field3">Salario inicial</label>
+      </div>
+      <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'comision'">
+        <input class="form-control" type="number" name="field4" placeholder="Salario basico"
+          [(ngModel)]='employee.salario' />
+        <label for="field4">Salario basico</label>
+      </div>
+      <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'comision'">
+        <input class="form-control" type="number" name="field5" placeholder="Porcentaje de comision por venta"
+          [(ngModel)]='employee.porcentajeDeComision' />
+        <label for="field5">Porcentaje de comision por venta</label>
+      </div>
+      <div class="form-label-group" *ngIf="employee.tipoDeEmpleado == 'parcial'">
+        <input class="form-control" type="number" name="field6" placeholder="Salario inicial"
+          [(ngModel)]='employee.salario' />
+        <label for="field6">Salario inicial</label>
+      </div>
       <hr>
     </bs-modal-body>
     <bs-modal-footer>
       <button class="btn-danger" (click)="crearEmpleado.close()">Cancel</button>
-      <button class="btn-primary" (click)="crateEmployee(); crearEmpleado.close()" [disabled]="!track.valid">Save</button>
+      <button class="btn-primary" (click)="crateEmployee(); crearEmpleado.close()"
+        [disabled]="!track.valid">Save</button>
     </bs-modal-footer>
   </form>
 </bs-modal>
