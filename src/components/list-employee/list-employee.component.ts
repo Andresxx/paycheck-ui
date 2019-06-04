@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from 'src/services/http.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './list-employee.component.html',
   styleUrls: ['./list-employee.component.css']
 })
-export class ListEmployeeComponent implements OnInit {
+export class ListEmployeeComponent implements OnInit, OnDestroy {
 
   private employeeSubscription : Subscription;
   public listOfEmployees : any;
@@ -16,34 +16,16 @@ export class ListEmployeeComponent implements OnInit {
   constructor(private httpService: HttpService, private router : Router) { }
 
   ngOnInit() {
-    // if(this.employeeSubscription)
-    //   this.employeeSubscription.unsubscribe();
-    // this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
-    //   console.log(response);
-      
-    // })
-
-    this.listOfEmployees = {
-      "-LgQCWWn9hqpbPsxqJSg": {
-          "calculadoraDeSalario": {
-              "monto": 400
-          },
-          "ci": "8794212",
-          "email": "mail",
-          "metodoDePago": "efectivo",
-          "nombre": "Juan perez"
-      },
-      "-LgQH51B9Bweol3WxkCf": {
-          "calculadoraDeSalario": {
-              "monto": 400
-          },
-          "ci": "8794212",
-          "email": "mail",
-          "metodoDePago": "efectivo",
-          "nombre": "Sergio Perez"
-      }
-    }
-    this.listOfEmployees = this.parseResponse(this.listOfEmployees);
+    if(this.employeeSubscription)
+      this.employeeSubscription.unsubscribe();
+    this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
+      this.listOfEmployees = this.parseResponse(response);
+    })
+  }
+   
+  ngOnDestroy(){
+    if(this.employeeSubscription)
+      this.employeeSubscription.unsubscribe();
   }
 
 
@@ -61,9 +43,6 @@ export class ListEmployeeComponent implements OnInit {
   navigateTo(view){
     this.router.navigate(['/' + view]);
   }
-
-
-
 
 
 }
