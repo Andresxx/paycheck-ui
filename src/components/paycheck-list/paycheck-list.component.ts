@@ -26,6 +26,13 @@ export class PaycheckListComponent implements OnInit {
     })
   }
 
+  generateTicketsOfTheDay(){
+    if(this.ticketSubscription)
+      this.ticketSubscription.unsubscribe();
+    this.ticketSubscription = this.httpService.get('paychecksOfTheDay').subscribe(response =>{
+      this.listOfTickets = this.parseResponse(response);
+    })
+  }
 
   parseResponse(object) {
     let response = [];

@@ -32,8 +32,9 @@ public nombre:any = 'andres';
       this.employeeSubscription.unsubscribe();
     this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
       this.listOfEmployees = this.parseResponse(response);
-  })
+    })
   }
+  
 
 
   parseResponse(object) {

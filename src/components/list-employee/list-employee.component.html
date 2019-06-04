@@ -3,13 +3,15 @@
   <div class="column" *ngFor="let employee of listOfEmployees">
     <div class="card">
       <div class="col-sm-4">
-        <img class="img-rounded" width="100" height="100" [src]="'assets/user.png'">
+        <img style="margin-bottom: 2em;" class="img-rounded" width="100" height="100" [src]="'assets/user.png'">
       </div>
-      <h3>{{employee.nombre}}</h3>
-      <h4>{{employee.ci}}</h4>
-      <h5>{{employee.metodoDePago}}</h5>
+      <h3><b>{{employee.nombre}}</b></h3>
+      <h4><b>Metodo notificacion: </b>{{employee.notificacionDePago}}</h4>
+      <h4><b>Metodo pago: </b>{{employee.metodoDePago}}</h4>
+      <h4><b>Ci: </b>{{employee.ci}}</h4>
+
       <div class="button-box">
-        <button class="btn btn-primary button glyphicon glyphicon-user" title="Employee Information">
+        <button class="btn btn-primary button glyphicon glyphicon-user" title="Employee Information" (click)="EditarEmpleado.open()">
         </button>
         <button class="btn btn-primary button glyphicon glyphicon-trash" title="Delete Employee">
         </button>
@@ -80,3 +82,22 @@
     </bs-modal-footer>
   </form>
 </bs-modal>
+
+
+
+<bs-modal #EditarEmpleado>
+    <bs-modal-header [showDismiss]="true">
+      <h4 class="modal-title">Editar Empleado</h4>
+    </bs-modal-header>
+ 
+      <bs-modal-body>
+    
+
+      </bs-modal-body>
+      <bs-modal-footer>
+        <button class="btn-danger" (click)="EditarEmpleado.close()">Cancel</button>
+        <button class="btn-primary" (click)="saveChanges(); EditarEmpleado.close()">Save</button>
+      </bs-modal-footer>
+    
+  </bs-modal>
+  
