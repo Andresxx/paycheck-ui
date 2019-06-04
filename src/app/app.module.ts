@@ -9,6 +9,7 @@ import { CreateEmployeeComponent } from '../components/create-employee/create-em
 import { PaycheckListComponent } from '../components/paycheck-list/paycheck-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListEmployeeComponent } from '../components/list-employee/list-employee.component';
+import { BsModalModule } from 'ng2-bs3-modal';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ListEmployeeComponent } from '../components/list-employee/list-employee
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BsModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from 'src/services/http.service';
 import { Router } from '@angular/router';
+import { equalParamsAndUrlSegments } from '@angular/router/src/router_state';
 
 @Component({
   selector: 'app-list-employee',
@@ -12,20 +13,26 @@ export class ListEmployeeComponent implements OnInit, OnDestroy {
 
   private employeeSubscription : Subscription;
   public listOfEmployees : any;
-
+  public employee:any;
+public nombre:any = 'andres';
   constructor(private httpService: HttpService, private router : Router) { }
 
   ngOnInit() {
-    if(this.employeeSubscription)
-      this.employeeSubscription.unsubscribe();
-    this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
-      this.listOfEmployees = this.parseResponse(response);
-    })
+    this.requestListOfemployees();
+    this.initializeEmployee();
   }
    
   ngOnDestroy(){
     if(this.employeeSubscription)
       this.employeeSubscription.unsubscribe();
+  }
+
+  requestListOfemployees(){
+    if(this.employeeSubscription)
+      this.employeeSubscription.unsubscribe();
+    this.employeeSubscription = this.httpService.get('employees').subscribe(response =>{
+      this.listOfEmployees = this.parseResponse(response);
+  })
   }
 
 
@@ -39,9 +46,30 @@ export class ListEmployeeComponent implements OnInit, OnDestroy {
     return response;
   }
 
+  initializeEmployee(){
+    this.employee = {
+      nombre: "",
+      ci: "",
+      tipoDeEmpleado: "fijo",
+      metodoDePago: "efectivo",
+      notificacionDePago: "mail",
+      salario: '',
+      porcentajeDeComision: ''
+    }
+  }
+
 
   navigateTo(view){
     this.router.navigate(['/' + view]);
+  }
+
+    crateEmployee(){
+    if(this.employeeSubscription)
+      this.employeeSubscription.unsubscribe();
+    this.httpService.post("new-employee",this.employee).subscribe(res=>{
+      this.requestListOfemployees();
+      this.initializeEmployee();
+    })
   }
 
 
