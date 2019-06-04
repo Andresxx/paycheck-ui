@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from 'src/services/http.service';
 import { Router } from '@angular/router';
-import { equalParamsAndUrlSegments } from '@angular/router/src/router_state';
+import { injectRootLimpMode } from '@angular/core/src/di/injector_compatibility';
+
 
 @Component({
   selector: 'app-list-employee',
@@ -14,7 +15,6 @@ export class ListEmployeeComponent implements OnInit, OnDestroy {
   private employeeSubscription : Subscription;
   public listOfEmployees : any;
   public employee:any;
-public nombre:any = 'andres';
   constructor(private httpService: HttpService, private router : Router) { }
 
   ngOnInit() {
@@ -72,6 +72,13 @@ public nombre:any = 'andres';
       this.initializeEmployee();
     })
   }
+
+  
+  capitalizeFirstPipe(value: string, args: any[]): string {
+
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
 
 
 }
